@@ -14,7 +14,7 @@ steps:
 trigger:
   branch:
   - master
-  
+
 ---
 kind: pipeline
 name: default
@@ -23,5 +23,10 @@ steps:
 - name: test
   image: golang
   commands:
-  - go test
-  - go build
+  # - go test
+  # - go build
+  - pwd
+  - ls -lrtha
+  # - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
+  # - ./app
+  - CGO_ENABLED=0 GOOS=linux go run app.go
