@@ -14,3 +14,14 @@ steps:
 trigger:
   branch:
   - master
+  
+---
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: golang
+  commands:
+  - go test
+  - go build
